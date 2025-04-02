@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <BWCR.RelationGoodwillSituationDef>
+    <defName>Part_Part</defName>
+    <label>same group</label>
+    <workerClass>BWCR.RelationGoodwillSituationWorker_SameRelation</workerClass>
+    <type>BWCR_Group_Part</type>
+    <item>BWCR_Part</item>
+    <otherItem>BWCR_Group</otherItem>
+    <naturalGoodwillOffset>20</naturalGoodwillOffset>
+  </BWCR.RelationGoodwillSituationDef>
+
+  <BWCR.RelationGoodwillSituationDef>
+    <defName>Parent_Child</defName>
+    <label>branch</label>
+    <workerClass>BWCR.RelationGoodwillSituationWorker_OneRelation</workerClass>
+    <type>BWCR_Parent_Child</type>
+    <item>BWCR_Parent</item>
+    <otherItem>BWCR_Child</otherItem>
+    <naturalGoodwillOffset>100</naturalGoodwillOffset>
+  </BWCR.RelationGoodwillSituationDef>
+  <BWCR.RelationGoodwillSituationDef>
+    <defName>Overlord_Vassal</defName>
+    <label>subjection relation</label>
+    <workerClass>BWCR.RelationGoodwillSituationWorker_OneRelation</workerClass>
+    <type>BWCR_Overlord_Vassal</type>
+    <item>BWCR_Overlord</item>
+    <otherItem>BWCR_Vassal</otherItem>
+    <naturalGoodwillOffset>50</naturalGoodwillOffset>
+  </BWCR.RelationGoodwillSituationDef>
+</Defs>

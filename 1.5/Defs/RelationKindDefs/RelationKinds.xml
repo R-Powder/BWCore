@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 派系 -->
+	<BWCR.RelationTypeDef Name="OneToMultiRelationBase" Abstract="True">
+	</BWCR.RelationTypeDef>
+	
+	<BWCR.RelationTypeDef Name="OneToOneRelationBase" Abstract="True">
+	</BWCR.RelationTypeDef>
+	<BWCR.RelationTypeDef ParentName="OneToMultiRelationBase">
+		<defName>BWCR_Group_Part</defName>
+		<label>group part</label>
+		<description> </description>
+		<relationItems>
+			<li>BWCR_Group</li>
+			<li>BWCR_Part</li>
+		</relationItems>
+		<createAlly>true</createAlly>
+	</BWCR.RelationTypeDef>
+	<BWCR.RelationItemDef>
+		<defName>BWCR_Group</defName>
+		<label>group</label>
+		<description> </description>
+		<expandingIconTexture>Icon/BWCR_RelationItem_Group_Icon</expandingIconTexture>
+		<tab>BWCR_As_Group</tab>
+		<conflictItems>
+			<li>BWCR_Child</li>
+			<li>BWCR_Part</li>
+			<li>BWCR_Vassal</li>
+			<li>BWCR_Parent</li>
+			<li>BWCR_Overlord</li>
+		</conflictItems>
+	</BWCR.RelationItemDef>
+	<BWCR.RelationItemDef>
+		<defName>BWCR_Part</defName>
+		<label>part</label>
+		<description> </description>
+		<expandingIconTexture>Icon/BWCR_RelationItem_Part_Icon</expandingIconTexture>
+		<tab>BWCR_As_Sub</tab>
+		<conflictItems>
+			<li>BWCR_Child</li>
+			<li>BWCR_Part</li>
+			<li>BWCR_Vassal</li>
+			<li>BWCR_Group</li>
+			<li>BWCR_Parent</li>
+			<li>BWCR_Overlord</li>
+		</conflictItems>
+	</BWCR.RelationItemDef>
+	
+	<BWCR.RelationTypeDef ParentName="OneToMultiRelationBase">
+		<defName>BWCR_Parent_Child</defName>
+		<label>parent child</label>
+		<description> </description>
+		<relationItems>
+			<li>BWCR_Parent</li>
+			<li>BWCR_Child</li>
+		</relationItems>
+		<createAlly>true</createAlly>
+	</BWCR.RelationTypeDef>
+	<BWCR.RelationItemDef>
+		<defName>BWCR_Parent</defName>
+		<label>parent</label>
+		<description> </description>
+		<tab>BWCR_As_Parent</tab>
+		<conflictItems>
+			<li>BWCR_Child</li>
+			<li>BWCR_Part</li>
+			<li>BWCR_Vassal</li>
+			<li>BWCR_Group</li>
+		</conflictItems>
+	</BWCR.RelationItemDef>
+	<BWCR.RelationItemDef>
+		<defName>BWCR_Child</defName>
+		<label>child</label>
+		<description> </description>
+		<tab>BWCR_As_Sub</tab>
+		<conflictItems>
+			<li>BWCR_Child</li>
+			<li>BWCR_Part</li>
+			<li>BWCR_Vassal</li>
+			<li>BWCR_Group</li>
+			<li>BWCR_Parent</li>
+			<li>BWCR_Overlord</li>
+		</conflictItems>
+	</BWCR.RelationItemDef>
+	
+	<BWCR.RelationTypeDef ParentName="OneToMultiRelationBase">
+		<defName>BWCR_Overlord_Vassal</defName>
+		<label>group part</label>
+		<description> </description>
+		<relationItems>
+			<li>BWCR_Overlord</li>
+			<li>BWCR_Vassal</li>
+		</relationItems>
+		<createAlly>true</createAlly>
+	</BWCR.RelationTypeDef>
+	<BWCR.RelationItemDef>
+		<defName>BWCR_Overlord</defName>
+		<label>overlord</label>
+		<description> </description>
+		<tab>BWCR_As_Overlord</tab>
+		<conflictItems>
+			<li>BWCR_Child</li>
+			<li>BWCR_Part</li>
+			<li>BWCR_Vassal</li>
+			<li>BWCR_Group</li>
+		</conflictItems>
+	</BWCR.RelationItemDef>
+	<BWCR.RelationItemDef>
+		<defName>BWCR_Vassal</defName>
+		<label>vassal</label>
+		<description> </description>
+		<tab>BWCR_As_Sub</tab>
+		<conflictItems>
+			<li>BWCR_Child</li>
+			<li>BWCR_Part</li>
+			<li>BWCR_Vassal</li>
+			<li>BWCR_Group</li>
+			<li>BWCR_Parent</li>
+			<li>BWCR_Overlord</li>
+		</conflictItems>
+	</BWCR.RelationItemDef>
+</Defs>

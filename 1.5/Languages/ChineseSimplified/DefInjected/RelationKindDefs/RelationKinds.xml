@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  
+  <BWRFR_Group_Part.label>群体-部分</BWRFR_Group_Part.label>
+  <BWRFR_Group_Part.description>。</BWRFR_Group_Part.description>
+  
+  <BWRFR_Group.label>群体</BWRFR_Group.label>
+  <BWRFR_Group.description>。</BWRFR_Group.description>
+  
+  <BWRFR_Part.label>部分</BWRFR_Part.label>
+  <BWRFR_Part.description>组成部分。</BWRFR_Part.description>
+  
+  <BWRFR_Parent_Child.label>主部-支系</BWRFR_Parent_Child.label>
+  <BWRFR_Parent_Child.description>。</BWRFR_Parent_Child.description>
+  
+  <BWRFR_Parent.label>主部</BWRFR_Parent.label>
+  <BWRFR_Parent.description>。</BWRFR_Parent.description>
+  
+  <BWRFR_Child.label>支系</BWRFR_Child.label>
+  <BWRFR_Child.description>支系。</BWRFR_Child.description>
+  
+  <BWRFR_Overlord_Vassal.label>领主-附庸</BWRFR_Overlord_Vassal.label>
+  <BWRFR_Overlord_Vassal.description>。</BWRFR_Overlord_Vassal.description>
+  
+  <BWRFR_Overlord.label>领主</BWRFR_Overlord.label>
+  <BWRFR_Overlord.description>。</BWRFR_Overlord.description>
+  
+  <BWRFR_Vassal.label>附庸</BWRFR_Vassal.label>
+  <BWRFR_Vassal.description>。</BWRFR_Vassal.description>
+  
+</LanguageData>

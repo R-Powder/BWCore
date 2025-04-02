@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<BWCR.RelationTabDef>
+		<defName>Vanilla</defName>
+		<label>Vanilla</label>
+		<generalTitle>Vanilla</generalTitle>
+		<generalDescription>Vanilla</generalDescription>
+		<drawTabUI>BWCR.Dialog_RelationInfo.DrawFactionListWithDetailVanilla</drawTabUI>
+	</BWCR.RelationTabDef>
+	<BWCR.RelationTabDef>
+		<defName>BWCR_As_Sub</defName>
+		<label>sub</label>
+		<generalTitle>Super relation</generalTitle>
+		<generalDescription>Super relation</generalDescription>
+	</BWCR.RelationTabDef>
+	<BWCR.RelationTabDef>
+		<defName>BWCR_As_Parent</defName>
+		<label>child</label>
+		<generalTitle>Child relation</generalTitle>
+		<generalDescription>Child relation</generalDescription>
+	</BWCR.RelationTabDef>
+	<BWCR.RelationTabDef>
+		<defName>BWCR_As_Overlord</defName>
+		<label>vassal</label>
+		<generalTitle>Vassal relation</generalTitle>
+		<generalDescription>Vassal relation</generalDescription>
+		<drawTabUI>BWCR.Dialog_RelationInfo.DrawFactionListWithDetail</drawTabUI>
+	</BWCR.RelationTabDef>
+	<BWCR.RelationTabDef>
+		<defName>BWCR_As_Group</defName>
+		<label>part</label>
+		<generalTitle>Part relation</generalTitle>
+		<generalDescription>Part relation</generalDescription>
+	</BWCR.RelationTabDef>
+</Defs>

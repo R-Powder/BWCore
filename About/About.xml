@@ -1,0 +1,15 @@
+<ModMetaData>
+	<name>[BW]BWCore</name>
+	<author>R-Powder</author>
+	<supportedVersions>
+		<li>1.5</li>
+	</supportedVersions>
+	<modIconPath IgnoreIfNoMatchingField="True">UI/VELogo</modIconPath>
+	<modDependencies>
+	</modDependencies>
+	<loadAfter>
+	</loadAfter>
+
+	<packageId>rpowder.bw.core</packageId>
+	<description></description>
+</ModMetaData>
