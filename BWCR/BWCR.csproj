@@ -34,6 +34,9 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="0Harmony">
+          <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-CSharp">
           <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
@@ -52,10 +55,16 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="RelationGoodwillSituationWorker.cs" />
+        <Compile Include="HarmonyPatch.cs" />
+        <Compile Include="RelationGoodwillSituationDef.cs" />
+        <Compile Include="RelationGoodwillSituationWorker_OneRelation.cs" />
+        <Compile Include="RelationGoodwillSituationWorker_SameRelation.cs" />
+        <Compile Include="WorldGenStep_GroupPart.cs" />
         <Compile Include="BWCRDefOf.cs" />
         <Compile Include="BWCRSetting.cs" />
         <Compile Include="Dialog_RelationInfo.cs" />
-        <Compile Include="Extension.cs" />
+        <Compile Include="BWCRelationExtension.cs" />
         <Compile Include="RelationMaker.cs" />
         <Compile Include="RelationFactionUtil.cs" />
         <Compile Include="Relation.cs" />

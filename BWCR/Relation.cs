@@ -42,7 +42,7 @@ public class OverlordVassalRelation :Relation
     public Faction Vassal => Item2;
     public void CheckKindThresholds(out bool sentLetter)
     {
-        //var item = relationItems[RFRDefOf.BWRFR_Overlord];
+        //var item = relationItems[RFRDefOf.BWCR_Overlord];
         sentLetter = false;
         if (kind[Vassal] != (byte)VassalRelationKind.Rebellious && baseGoodwill[Vassal] <= -75)
             kind[Vassal] = (byte)VassalRelationKind.Rebellious;

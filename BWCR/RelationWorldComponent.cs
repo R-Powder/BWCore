@@ -59,20 +59,20 @@ public class RelationWorldComponent(World world) : WorldComponent(world)
 			? dictRelation.TryGetValue(faction,out var getRelation)
 				? getRelation : Array.Empty<Relation>() : Array.Empty<Relation>();
 	public OverlordVassalRelation GetVassalRelation(Faction vassal) =>
-		GetRelationUnique(vassal,BWCRDefOf.BWRFR_Vassal) as OverlordVassalRelation;
+		GetRelationUnique(vassal,BWCRDefOf.BWCR_Vassal) as OverlordVassalRelation;
 
 	public IEnumerable<OverlordVassalRelation> GetOverlordRelations(Faction overlord) =>
-		GetRelation(overlord, BWCRDefOf.BWRFR_Overlord).OfType<OverlordVassalRelation>();
+		GetRelation(overlord, BWCRDefOf.BWCR_Overlord).OfType<OverlordVassalRelation>();
 	public IEnumerable<GroupPartRelation> GetGroupRelations(Faction group) =>
-		GetRelation(group, BWCRDefOf.BWRFR_Group).OfType<GroupPartRelation>();
+		GetRelation(group, BWCRDefOf.BWCR_Group).OfType<GroupPartRelation>();
 
 	public GroupPartRelation GetPartRelation(Faction part) =>
-		GetRelationUnique(part, BWCRDefOf.BWRFR_Part) as GroupPartRelation;
+		GetRelationUnique(part, BWCRDefOf.BWCR_Part) as GroupPartRelation;
 	public IEnumerable<ParentChildRelation> GetParentRelations(Faction parent) =>
-		GetRelation(parent, BWCRDefOf.BWRFR_Parent).OfType<ParentChildRelation>();
+		GetRelation(parent, BWCRDefOf.BWCR_Parent).OfType<ParentChildRelation>();
 
 	public ParentChildRelation GetChildRelation(Faction child) =>
-		GetRelationUnique(child, BWCRDefOf.BWRFR_Child) as ParentChildRelation;
+		GetRelationUnique(child, BWCRDefOf.BWCR_Child) as ParentChildRelation;
 	//============================================================
 	public bool IsItem(Faction faction, RelationItemDef item) => !GetRelation(faction,item).EnumerableNullOrEmpty();
 	
@@ -123,17 +123,17 @@ public class RelationWorldComponent(World world) : WorldComponent(world)
 
 	public bool DesOverlordVassalRelation(Faction overlord,Faction vassal){
 		if(overlord == null || vassal == null) return false;
-		DesRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWRFR_Overlord, overlord}, {BWCRDefOf.BWRFR_Vassal, vassal}});			
+		DesRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWCR_Overlord, overlord}, {BWCRDefOf.BWCR_Vassal, vassal}});			
 		return true;
 	}
 	public bool DesGroupPartRelation(Faction group,Faction part){
 		if(group == null || part == null) return false;
-		DesRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWRFR_Group, group}, {BWCRDefOf.BWRFR_Part, part}});			
+		DesRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWCR_Group, group}, {BWCRDefOf.BWCR_Part, part}});			
 		return true;
 	}
 	public bool DesParentChildRelation(Faction parent,Faction child){
 		if(parent == null || child == null) return false;
-		DesRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWRFR_Parent, parent}, {BWCRDefOf.BWRFR_Child, child}});
+		DesRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWCR_Parent, parent}, {BWCRDefOf.BWCR_Child, child}});
 		return true;
 	}
 		

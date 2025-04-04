@@ -371,22 +371,22 @@ public static class RelationFactionUtil
 	public static bool IsSubFaction(this Faction itself) => !Enumerable.Any(SubFactionConditions, subFactionCondition => !subFactionCondition.Invoke(itself));
 
 	public static bool IsChild(this Faction itself) => 
-		GetRFRComponent().Relations[BWCRDefOf.BWRFR_Child].ContainsKey(itself);
+		GetRFRComponent().Relations[BWCRDefOf.BWCR_Child].ContainsKey(itself);
 
 	public static bool IsParent(this Faction itself) => 
-		GetRFRComponent().Relations[BWCRDefOf.BWRFR_Parent].ContainsKey(itself);
+		GetRFRComponent().Relations[BWCRDefOf.BWCR_Parent].ContainsKey(itself);
 
 	public static bool IsVassal(this Faction itself) => 
-		GetRFRComponent().Relations[BWCRDefOf.BWRFR_Vassal].ContainsKey(itself);
+		GetRFRComponent().Relations[BWCRDefOf.BWCR_Vassal].ContainsKey(itself);
 
 	public static bool IsOverlord(this Faction itself) => 
-		GetRFRComponent().Relations[BWCRDefOf.BWRFR_Overlord].ContainsKey(itself);
+		GetRFRComponent().Relations[BWCRDefOf.BWCR_Overlord].ContainsKey(itself);
 
 	public static bool IsPart(this Faction itself) => 
-		GetRFRComponent().Relations[BWCRDefOf.BWRFR_Group].ContainsKey(itself);
+		GetRFRComponent().Relations[BWCRDefOf.BWCR_Group].ContainsKey(itself);
 
 	public static bool IsGroup(this Faction itself) => 
-		GetRFRComponent().Relations[BWCRDefOf.BWRFR_Part].ContainsKey(itself);
+		GetRFRComponent().Relations[BWCRDefOf.BWCR_Part].ContainsKey(itself);
 
 	//=================================================================
 	public static OverlordVassalRelation GetVassalRelation(this Faction vassal) =>
@@ -554,8 +554,8 @@ public static class RelationFactionUtil
 	{
 		if (overlord == null || vassal == null) return false;
 		return CreateRelation(new Dictionary<RelationItemDef, Faction>
-		{ { BWCRDefOf.BWRFR_Overlord, overlord }, { BWCRDefOf.BWRFR_Vassal, vassal } }
-			, BWCRDefOf.BWRFR_Overlord_Vassal);
+		{ { BWCRDefOf.BWCR_Overlord, overlord }, { BWCRDefOf.BWCR_Vassal, vassal } }
+			, BWCRDefOf.BWCR_Overlord_Vassal);
 	}
 
 	public static bool CreateParentChildRelation(Faction parent, Faction child)
@@ -563,17 +563,17 @@ public static class RelationFactionUtil
 		if (parent == null || child == null) return false;
 		child.ChangeColor(parent);
 		return CreateRelation(new Dictionary<RelationItemDef, Faction>
-		{ { BWCRDefOf.BWRFR_Parent, parent }, { BWCRDefOf.BWRFR_Child, child } }
-			, BWCRDefOf.BWRFR_Parent_Child);
+		{ { BWCRDefOf.BWCR_Parent, parent }, { BWCRDefOf.BWCR_Child, child } }
+			, BWCRDefOf.BWCR_Parent_Child);
 	}
 
 	public static bool CreateGroupPartRelation(Faction group, Faction part)
 	{
 		if (group == null || part == null) return false;
-		Log.Message($"{BWCRDefOf.BWRFR_Group},{group},{BWCRDefOf.BWRFR_Part},{part}");
+		Log.Message($"{BWCRDefOf.BWCR_Group},{group},{BWCRDefOf.BWCR_Part},{part}");
 		return CreateRelation(new Dictionary<RelationItemDef, Faction>
-		{ { BWCRDefOf.BWRFR_Group, group }, { BWCRDefOf.BWRFR_Part, part } }
-			, BWCRDefOf.BWRFR_Group_Part);
+		{ { BWCRDefOf.BWCR_Group, group }, { BWCRDefOf.BWCR_Part, part } }
+			, BWCRDefOf.BWCR_Group_Part);
 	}
 
 	public static bool DeleteRelation(Dictionary<RelationItemDef,Faction> itemDict)
@@ -587,20 +587,20 @@ public static class RelationFactionUtil
 	{
 		if (overlord == null || vassal == null) return false;
 		//vassal.ChangeColorBack();
-		return DeleteRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWRFR_Overlord,overlord}, {BWCRDefOf.BWRFR_Vassal,vassal}});
+		return DeleteRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWCR_Overlord,overlord}, {BWCRDefOf.BWCR_Vassal,vassal}});
 	}
 
 	public static bool DeleteParentChildRelation(Faction parent, Faction child)
 	{
 		if (parent == null || child == null) return false;
 		child.ChangeColorBack();
-		return DeleteRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWRFR_Parent,parent}, {BWCRDefOf.BWRFR_Child,child}});
+		return DeleteRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWCR_Parent,parent}, {BWCRDefOf.BWCR_Child,child}});
 	}
 
 	public static bool DeleteGroupPartRelation(Faction group, Faction part)
 	{
 		if (group == null || part == null) return false;
-		return DeleteRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWRFR_Group,group}, {BWCRDefOf.BWRFR_Part,part}});
+		return DeleteRelation(new Dictionary<RelationItemDef, Faction>{{BWCRDefOf.BWCR_Group,group}, {BWCRDefOf.BWCR_Part,part}});
 	}
 	
 
@@ -628,40 +628,7 @@ public static class RelationFactionUtil
 		fac != null && other != null && other != fac &&
 		OverlordRelationWith(fac, other).kind[fac] == (byte)OverlordVassalRelation.OverlordRelationKind.Protective;			
 	
-
-
-	public static GetSuperFactionFlavorFactor[] getSuperFactionFlavorFactors =
-		[GetOverlordFlavorFactor, GetParentFlavorFactor, GetGroupFlavorFactor];
-
-	public static bool GetSuperFactionFlavorFactor(this Faction subFaction, out float factor)
-	{
-		foreach (var getSuperFactionFlavorFactor in getSuperFactionFlavorFactors)
-			if (getSuperFactionFlavorFactor(subFaction, out factor)) return true;
-		factor = 0f;
-		return false;
-	}
-
-	public static bool GetOverlordFlavorFactor(Faction vassal,out float factor)
-	{
-		factor = 0f;
-		if (!vassal.IsVassal()) return false;
-		factor = BWCRSetting.overlordFlavorFactor;
-		return true;
-	}
-	public static bool GetParentFlavorFactor(Faction child,out float factor)
-	{
-		factor = 0f;
-		if (!child.IsChild()) return false;
-		factor = BWCRSetting.parentFlavorFactor;
-		return true;
-	}
-	public static bool GetGroupFlavorFactor(Faction part, out float factor)
-	{
-		factor = 0f;
-		if (!part.IsPart()) return false;
-		factor = BWCRSetting.groupFlavorFactor;
-		return true;
-	}
+	
 	//=============================================================
 	//					ORIGINAL COLOR ZONE
 	//=============================================================
